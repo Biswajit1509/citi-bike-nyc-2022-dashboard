@@ -1,0 +1,17 @@
+# Python env
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Data files (do NOT push large raw/processed data)
+data/
+*.csv
+*.zip
+
+# Secrets
+secrets/
+token.txt
+.env
