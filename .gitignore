@@ -1,4 +1,4 @@
-# Python env
+# Python environment and caches
 venv/
 __pycache__/
 *.pyc
@@ -11,7 +11,10 @@ data/
 *.csv
 *.zip
 
-# Secrets
+# Secrets / tokens / credentials
 secrets/
+*.env
 token.txt
-.env
+noaa_token.txt
+*.json
+
