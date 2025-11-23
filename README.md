@@ -1,18 +1,41 @@
 # NYC CitiBike 2022 — Full Data Pipeline, Visualization, and Dashboard
-Project
 
 
 # Citi Bike NYC 2022 Dashboard
 
-This project analyzes Citi Bike trip data for 2022 and produces a series
-of insights and visualizations using Python.
+This project was completed as part of CareerFoundry’s Data Analytics Program as a sub part of my Product Management bootcamp , Achievement 2, Exercise 2.2.
+The goal was to collect, clean, and combine CitiBike’s 2022 trip data with daily weather data from NOAA to explore how weather conditions might affect bike usage in New York City and produce a series of insights and visualisation using python
+
+The exercise covered project planning, API sourcing, and data integration while following best practices in environment setup, data management, and version control.
 
 ## 📁 Project Structure
+
+1. Planned the project and defined the goal of combining CitiBike data with weather data.
+2. Collected CitiBike 2022 trip data from the official public S3 source.
+3. Cleaned and merged all twelve monthly datasets using Python.
+4. Retrieved daily average temperature data from the NOAA API (station: LaGuardia Airport, New York).
+5. Merged both datasets by date to create one combined dataset for analysis.
+6. Pushed all relevant files to GitHub, excluding large data files as instructed in the course.
+
+## Repository Structure
+
+New-York-s-CitiBike-trips-in-2022/
+├── notebooks/
+│ └── 2.2_citibike_weather_merge.ipynb
+├── Data
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 ## 🚴 Data Source
 
 The dataset is collected from the NYC Citi Bike system. All files end
 with `.csv`.
+CitiBike NYC 2022 Data: https://s3.amazonaws.com/tripdata/index.html
+Weather Data (NOAA API): https://www.ncdc.noaa.gov/cdo-web/
+Dataset ID: GHCND
+Station ID: USW00014739 (LaGuardia Airport)
+Parameter: TAVG (average daily temperature in °C)
 
 ## 🔧 Technologies Used
 
@@ -26,11 +49,9 @@ with `.csv`.
 
 \`\`\`bash streamlit run dashboard/app.py
 
-# 🚴 NYC CitiBike Trips 2022 — Complete Analytics & Dashboard Project
+## Project Indetail
 
-**CareerFoundry Data Analytics Program – Achievement 2 (Completed up to
-Chapter 6)**  
-**Author:** Biswajit Das
+# 🚴 NYC CitiBike Trips 2022 — Complete Analytics & Dashboard Project
 
 This repository contains the complete workflow for analyzing New York
 City’s CitiBike usage in 2022, combining trip data with weather
@@ -47,8 +68,7 @@ The work in this project demonstrates practical skills in:
 - Dashboard development (Streamlit)  
 - Project structuring & reproducibility
 
-This project is part of my ongoing portfolio and will be extended in
-**Chapter 7** to include multi-page dashboards, deployment, and
+This project include multi-page dashboards, deployment, and
 presentation delivery.
 
 ------------------------------------------------------------------------
@@ -68,7 +88,7 @@ presentation delivery.
 
 ------------------------------------------------------------------------
 
-# 📚 What I Learned (Summary of Skills Used)
+# 📚 Summary of Skills Used
 
 ## **🛠️ Data Engineering & Analysis**
 
@@ -191,3 +211,6 @@ Dashboard includes:
 - Embedded Kepler map HTML
 
 Running the dashboard: Link:
+
+## Author
+## Biswajit Das

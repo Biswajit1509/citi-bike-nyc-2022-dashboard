@@ -1,0 +1,72 @@
+---
+title: "Dashboard Plan — CitiBike NYC 2022 + Weather Data"
+author: "Biswajit Das"
+date: "`r Sys.Date()`"
+format: gfm
+---
+
+# Dashboard Plan: CitiBike NYC 2022 + Weather Data
+
+**Repo**: https://github.com/Biswajit1509/citi-bike-nyc-2022-dashboard
+
+## Data Context
+The CitiBike 2022 dataset provides detailed trip-level information across New York City’s bike-sharing network. Each record captures start and end stations, timestamps, trip duration, and bike type, supported by external weather data from NOAA.
+
+In total, the dataset covers hundreds of stations that act as both origins and destinations, offering a comprehensive picture of the spatial and temporal distribution of trips. Early inspection indicates that a small subset of stations — primarily in Manhattan and key transit hubs — accounts for a large share of total rides, suggesting high demand concentration zones.
+
+The data includes three types of bikes — classic, electric, and docked — with electric bikes representing a growing share of total rides. While user type (member vs. casual) is available, this analysis focuses on operational optimization rather than marketing segmentation, aligning with the project brief’s goal to address rebalancing and capacity challenges arising from trip imbalances.
+
+## Operational Challenges 
+The key operational issue faced by CitiBike is real-time imbalance — when certain stations run out of bikes while others lack dock availability. These shortages create customer dissatisfaction and logistical inefficiencies. Understanding the spatio-temporal dynamics of these imbalances and identifying the factors influencing them (especially weather and time) are central to the project goal.
+
+## Analysis Goal
+1. To identify where and when CitiBike faces operational challenges in bike availability or dock shortages, using 2022 trip and weather data.  
+2. The objective is to uncover patterns that help design targeted rebalancing strategies, improve capacity planning, and anticipate demand surges influenced by time, day, and weather.
+
+## Key Analytical Questions and Visualization Plan
+
+### Q1. Which stations generate the highest demand as start and end points?
+**Approach:** Aggregate total trip counts per station as origin and destination; compute net flow (starts - ends).  
+**Visualization:** Ranked Bar Charts (Top 20–30 starts and ends); Net flow color-coded indicators.
+
+### Q2. When and where do station imbalances occur most critically?
+**Approach:** Compute hourly imbalance ratio per station:
+\[
+\text{Imbalance} = \frac{Starts - Ends}{Starts + Ends}
+\]
+Flag stations with ratios ≥ 0.5 sustained across multiple hours.  
+**Visualization:** Interactive Kepler.gl map with bubble size = volume, color = shortage risk, and time slider.
+
+### Q3. Weekday vs weekend differences
+**Approach:** Compare station-level volumes and net flows between weekday and weekend.  
+**Visualization:** Scatter plot (weekday vs weekend net flow), ranked table of top shifting stations.
+
+### Q4. Peak / off-peak hours and areas of highest strain
+**Approach:** Aggregate hourly trips across the system and by neighborhood clusters.  
+**Visualization:** Line charts for hourly trends and neighborhood filter.
+
+### Q5. Weather impact
+**Approach:** Merge NOAA weather (temperature, precipitation) with trips; analyze correlations.  
+**Visualization:** Dual-axis charts (Trips vs Temperature/Precipitation), scatter plots for weekday/weekend differences.
+
+### Q6. Strongest O-D pairs
+**Approach:** Aggregate trips by origin-destination pairs, identify top flows and directional reversals by time of day.  
+**Visualization:** Flow map (arcs, chord/arrow diagrams), AM vs PM differences.
+
+## Dashboard Layout Plan
+- **Overview Tab:** Key KPIs — total trips, avg duration, active stations, peak hours.  
+- **Spatial Tab:** Station maps (trip density, net flow, shortage risks).  
+- **Temporal Tab:** Hourly/weekday trends.  
+- **Weather Tab:** Impact of temperature & precipitation.  
+- **Flow Tab:** Major O-D patterns and directional shifts.
+
+## Expected Tools & Techniques
+- **Data cleaning & analysis:** Python (pandas, numpy)  
+- **Visualization:** Plotly, Kepler.gl (interactive), Seaborn/Matplotlib (exploration)  
+- **Mapping:** GeoPandas, Folium (if needed)  
+- **Weather data:** NOAA API (GHCND station data)  
+- **Integration & deployment:** Streamlit (dashboard), Git & GitHub for repo management
+
+---
+
+*Prepared by Biswajit Das — Project work for CareerFoundry Product Management and Data Analytics Program (Achievement 2).*
