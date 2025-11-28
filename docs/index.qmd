@@ -1,8 +1,11 @@
 ---
 title: "Dashboard Plan — CitiBike NYC 2022 + Weather Data"
 author: "Biswajit Das"
-date: "`r Sys.Date()`"
-format: gfm
+date: "2025-11-23"
+format:
+  html:
+    toc: true
+    theme: cosmo
 ---
 
 # Dashboard Plan: CitiBike NYC 2022 + Weather Data
