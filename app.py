@@ -4,6 +4,9 @@ import pandas as pd
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import streamlit.components.v1 as components
+import zipfile
+from pathlib import Path
+
 
 # ----- PAGE CONFIG -----
 st.set_page_config(
@@ -16,9 +19,20 @@ KEPLER_HTML = "docs/Citibike_Aggregated_Map.html"
 # ----- DATA LOADING -----
 @st.cache_data
 def load_data():
+    zip_path = Path("data/processed/citi_bike_with_weather_2022.csv.zip")
+    extract_dir = zip_path.parent
+    csv_path = extract_dir / "citi_bike_with_weather_2022.csv"
+
+    # Unzip only if CSV does not already exist
+    if not csv_path.exists():
+        with zipfile.ZipFile(zip_path, "r") as z:
+            z.extractall(extract_dir)
+
+
+
     df = pd.read_csv(
-        "data/processed/citi_bike_with_weather_2022.csv",
-        parse_dates=["started_at", "ended_at", "date"],
+    csv_path,
+    parse_dates=["started_at", "ended_at", "date"],
     )
 
     df["date"] = pd.to_datetime(df["date"])
