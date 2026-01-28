@@ -7,6 +7,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data files (do NOT push large raw/processed data)
+!data/processed/citi_bike_with_weather_2022.csv.zip
 data/
 *.csv
 *.zip
